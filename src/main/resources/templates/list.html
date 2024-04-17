@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
 </head>
 <body>
 <h1>list page</h1>
 
-    <div>
-        <h4 th:text="${name}">pants</h4>
+    <div class="card">
+        <img src="https://placehold.co/300">
+        <div>
+            <h4 th:text="${items.get(0).title}">pants</h4>
+            <p th:text="${items.get(0).price}">7 billion</p>
+        </div>
     </div>
-    <div>
-        <h4>pants</h4>
-        <p>7 billion</p>
-    </div>
-    <div>
-        <h4>shirts</h4>
-        <p>8 billion</p>
+
+    <div class="card" th:each="item : ${items}">
+        <img src="https://placehold.co/300">
+        <div>
+            <h4 th:text="${item.title}">pants</h4>
+            <p th:text="${item.price}">7 billion</p>
+        </div>
     </div>
 
 </body>

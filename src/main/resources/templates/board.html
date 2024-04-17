@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/main.css" rel="stylesheet">
+</head>
+
+<body>
+<h1>board page</h1>
+
+<div class="board" th:each="board : ${boards}">
+    <div class="card">
+        <div>
+            <h4 th:text="${board.title}">title</h4>
+            <p th:text="${board.date}">content</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

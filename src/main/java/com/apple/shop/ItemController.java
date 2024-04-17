@@ -1,11 +1,10 @@
 package com.apple.shop;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import java.util.ArrayList;
+import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
@@ -16,10 +15,8 @@ public class ItemController {
     @GetMapping("/list")
     String list(Model model) {
         var result = itemRepository.findAll();
+        model.addAttribute("items", result);
 
-        System.out.println(result.getFirst().getPrice());
-
-        model.addAttribute("name", "Tom");
         return "list.html";
     }
 
