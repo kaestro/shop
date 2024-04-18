@@ -6,23 +6,20 @@
     <link href="/main.css" rel="stylesheet">
 </head>
 <body>
+
 <h1>list page</h1>
 
-    <div class="card">
-        <img src="https://placehold.co/300">
-        <div>
-            <h4 th:text="${items.get(0).title}">pants</h4>
-            <p th:text="${items.get(0).price}">7 billion</p>
-        </div>
-    </div>
+    <div th:replace="~{ nav.html :: navbar }"></div>
 
-    <div class="card" th:each="item : ${items}">
-        <img src="https://placehold.co/300">
-        <div>
-            <h4 th:text="${item.title}">pants</h4>
-            <p th:text="${item.price}">7 billion</p>
+    <a th:each="item : ${items}" th:href="@{'/detail/' + ${item.id}}">
+        <div class="card">
+            <img src="https://placehold.co/300">
+            <div>
+                <h4 th:text="${item.title}">pants</h4>
+                <p th:text="${item.price}">7 billion</p>
+            </div>
         </div>
-    </div>
+    </a>
 
 </body>
 </html>
