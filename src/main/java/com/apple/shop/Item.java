@@ -27,10 +27,19 @@ public class Item {
     }
 
     public void setTitle(String title) {
+        if (title == null || title.isBlank()) {
+            throw new IllegalArgumentException("Title cannot be empty");
+        } else if (title.length() > 100) {
+            throw new IllegalArgumentException("Title cannot be longer than 100 characters");
+        }
+
         this.title = title;
     }
 
     public void setPrice(Integer price) {
+        if (price < 0) {
+            throw new IllegalArgumentException("Price cannot be negative");
+        }
         this.price = price;
     }
 
