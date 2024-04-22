@@ -1,4 +1,4 @@
-package com.apple.shop;
+package com.apple.shop.board;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
