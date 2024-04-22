@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="/main.css" rel="stylesheet">
+    <script src="/list.js"></script>
 </head>
 <body>
 
@@ -11,15 +12,23 @@
 
     <div th:replace="~{ nav.html :: navbar }"></div>
 
-    <a th:each="item : ${items}" th:href="@{'/detail/' + ${item.id}}">
-        <div class="card">
-            <img src="https://placehold.co/300">
+    <div th:each="item : ${items}" style="display:flex;">
+        <div style="display: flex;">
+            <a th:href="@{'/detail/' + ${item.id}}">
+                <div class="card">
+                    <img src="https://placehold.co/300" alt="Detail view of item with ID ${item.id}">
+                </div>
+            </a>
             <div>
                 <h4 th:text="${item.title}">pants</h4>
                 <p th:text="${item.price}">7 billion</p>
             </div>
         </div>
-    </a>
+        <button type="button" class="deleteItem" th:data-id="${item.id}">deleteItem</button>
+    </div>
+
+    <button type="button" class="btn">fetch Post</button>
+    <button type="button" class="btn">fetch Get</button>
 
 </body>
 </html>
